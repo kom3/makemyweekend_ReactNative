@@ -1,4 +1,11 @@
-import { StyleSheet, View, Text, Image, TouchableOpacity } from "react-native";
+import {
+  StyleSheet,
+  View,
+  Text,
+  Image,
+  TouchableOpacity,
+  ImageBackground,
+} from "react-native";
 
 import {
   useFonts,
@@ -7,7 +14,7 @@ import {
   Poppins_600SemiBold,
 } from "@expo-google-fonts/dev";
 
-const welc_img = require("../images/welcome.jpg");
+const welc_img = require("../images/welcome1.jpg");
 
 export default function Welcome(props) {
   let [fontsLoaded] = useFonts({
@@ -24,49 +31,43 @@ export default function Welcome(props) {
     );
   }
   return (
-    <View style={styles.container}>
-      <View style={styles.shadow_efft}>
-        <Image source={welc_img} style={styles.back_img} />
-      </View>
+    <ImageBackground source={welc_img} style={styles.back_img}>
       <View>
-        <Text style={styles.text}>Make My Weekend</Text>
-        <Text style={styles.text2}>Things end but memories last forever</Text>
+        <View style={styles.text_background}>
+          <Text style={styles.text}>Make My Weekend</Text>
+          <Text style={styles.text2}>Things end but memories last forever</Text>
+        </View>
+        <View style={styles.btn_wrpr}>
+          <TouchableOpacity onPress={() => props.navigation.navigate("Login")}>
+            <View style={styles.login_btn}>
+              <Text style={styles.lbtn_text}>LOGIN</Text>
+            </View>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => props.navigation.navigate("SignUp")}>
+            <View style={styles.signup_btn}>
+              <Text style={styles.sbtn_text}>SIGN UP</Text>
+            </View>
+          </TouchableOpacity>
+        </View>
       </View>
-      <View style={styles.btn_wrpr}>
-        <TouchableOpacity onPress={() => props.navigation.navigate("Login")}>
-          <View style={styles.login_btn}>
-            <Text style={styles.lbtn_text}>LOGIN</Text>
-          </View>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => props.navigation.navigate("SignUp")}>
-          <View style={styles.signup_btn}>
-            <Text style={styles.sbtn_text}>SIGN UP</Text>
-          </View>
-        </TouchableOpacity>
-      </View>
-    </View>
+    </ImageBackground>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    backgroundColor: "#1F82E0",
+  text_background: {
+    backgroundColor: "rgba(0, 0, 0, 0.24)",
+    height: 170,
   },
-  shadow_efft: {
-    shadowOffset: { width: 30, height: 30 },
-    shadowColor: "black",
-    // shadowOpacity: 1,
-    elevation: 50,
-    // background color must be set
-    backgroundColor: "#1F82E0", // invisible color
-  },
+
   back_img: {
-    height: 330,
+    height: "100%",
     width: "100%",
-    resizeMode: "cover",
+    resizeMode: "contain",
   },
+
   text: {
-    marginTop: 12,
+    marginTop: 60,
     fontFamily: "SansitaSwashed_600SemiBold",
     color: "#fff",
     fontSize: 28,
@@ -75,6 +76,7 @@ const styles = StyleSheet.create({
     letterSpacing: 0,
     textAlign: "center",
   },
+
   text2: {
     fontFamily: "Satisfy_400Regular",
     color: "#fff",
@@ -87,9 +89,9 @@ const styles = StyleSheet.create({
 
   btn_wrpr: {
     display: "flex",
-    marginTop: 120,
     height: "100%",
     alignItems: "center",
+    justifyContent: "center",
   },
 
   lbtn_text: {
