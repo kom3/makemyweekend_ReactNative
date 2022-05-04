@@ -100,6 +100,9 @@ const styles = StyleSheet.create({
   },
 
   login_btn: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
     height: 53,
     width: 178,
     borderRadius: 45,

@@ -24,7 +24,7 @@ export default function LocationSearchBar(props) {
 
 const styles = StyleSheet.create({
   searchbar_wrpr: {
-    marginTop: 70,
+    marginTop: 40,
     display: "flex",
     // justifyContent: "center",
     alignItems: "center",
