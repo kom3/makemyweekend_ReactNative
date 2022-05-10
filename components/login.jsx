@@ -3,10 +3,8 @@ import {
   Text,
   StyleSheet,
   SafeAreaView,
-  Image,
   ImageBackground,
   TouchableOpacity,
-  ScrollView,
 } from "react-native";
 
 import {

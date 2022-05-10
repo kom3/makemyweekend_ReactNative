@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
     fontFamily: "Roboto_300Light",
     margin: 12,
     borderRadius: 12,
-    backgroundColor: "#F4F4F4",
+    backgroundColor: "#fff",
     borderWidth: 1,
     borderColor: "#FCFCFC",
     padding: 10,

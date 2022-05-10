@@ -4,6 +4,7 @@ import {
   ImageBackground,
   StyleSheet,
   ScrollView,
+  TouchableWithoutFeedback,
 } from "react-native";
 
 const text_backgrd_color = "rgba(0, 0, 0, 0.69)";
@@ -13,7 +14,7 @@ const styles = StyleSheet.create({
   },
 
   horizontal_scrl_wrpr: {
-    height: 158,
+    height: 200,
     maxWidth: "100%",
     overflow: "scroll",
     display: "flex",
@@ -21,8 +22,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   scroll_item: {
-    height: 158,
-    width: 158,
+    height: 200,
+    width: 220,
     marginRight: 8,
     backgroundColor: "rgba(244, 244, 244, 1)",
     borderRadius: 8,
@@ -79,17 +80,25 @@ export default function HorizontalScrollList(props) {
         >
           {props.itemList.map((item, idx) => {
             return (
-              <View style={styles.scroll_item} key={Math.random() + idx}>
-                <ImageBackground source={img} style={styles.scroll_backgrd_img}>
-                  <View style={styles.text_overly_wrpr}>
-                    <View style={styles.text_overly_backgrd_color}>
-                      <Text style={styles.overlay_txt} u>
-                        {item}
-                      </Text>
+              <TouchableWithoutFeedback
+                onPress={() => props.navigation.navigate("PlaceDetails")}
+                key={Math.random() + idx}
+              >
+                <View style={styles.scroll_item}>
+                  <ImageBackground
+                    source={{ uri: item.imageUrl }}
+                    style={styles.scroll_backgrd_img}
+                  >
+                    <View style={styles.text_overly_wrpr}>
+                      <View style={styles.text_overly_backgrd_color}>
+                        <Text style={styles.overlay_txt} u>
+                          {item.name}
+                        </Text>
+                      </View>
                     </View>
-                  </View>
-                </ImageBackground>
-              </View>
+                  </ImageBackground>
+                </View>
+              </TouchableWithoutFeedback>
             );
           })}
         </ScrollView>
