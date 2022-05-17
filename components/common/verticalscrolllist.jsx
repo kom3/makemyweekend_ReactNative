@@ -27,8 +27,12 @@ export default function VerticalScrollList(props) {
               <View
                 style={
                   idx == lastItemIndex
-                    ? { ...styles.scroll_item, ...styles.scroll_last_item }
-                    : { ...styles.scroll_item }
+                    ? {
+                        ...styles.scroll_item,
+                        ...styles.scroll_last_item,
+                        ...props?.style,
+                      }
+                    : { ...styles.scroll_item, ...props?.style }
                 }
               >
                 <ImageBackground
@@ -63,9 +67,9 @@ const styles = StyleSheet.create({
   },
 
   scroll_item: {
-    height: 250,
+    height: 270,
     width: "100%",
-    marginBottom: 8,
+    marginBottom: 12,
     backgroundColor: "rgba(244, 244, 244, 1)",
     borderRadius: 8,
     overflow: "hidden",

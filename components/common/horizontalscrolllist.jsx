@@ -72,7 +72,7 @@ export default function HorizontalScrollList(props) {
   return (
     <View style={styles.container}>
       <Text style={styles.main_text}>{props.mainText || "Categories"}</Text>
-      <View style={styles.horizontal_scrl_wrpr}>
+      <View style={{...styles.horizontal_scrl_wrpr, ...props?.style}}>
         <ScrollView
           horizontal={true}
           showsVerticalScrollIndicator={false}
@@ -84,7 +84,7 @@ export default function HorizontalScrollList(props) {
                 onPress={() => props.navigation.navigate("PlaceDetails")}
                 key={Math.random() + idx}
               >
-                <View style={styles.scroll_item}>
+                <View style={{ ...styles.scroll_item, ...props?.style }}>
                   <ImageBackground
                     source={{ uri: item.imageUrl }}
                     style={styles.scroll_backgrd_img}

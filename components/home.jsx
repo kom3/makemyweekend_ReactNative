@@ -85,7 +85,20 @@ export default function Home(props) {
       <LocationSearchBar />
       <HorizontalScrollList
         {...props}
+        style={{ height: 100, marginRight: 12 }}
         mainText="Recent  searches"
+        itemList={Data}
+      />
+      <HorizontalScrollList
+        {...props}
+        style={{ height: 200, marginRight: 12 }}
+        mainText="Recomended places"
+        itemList={Data}
+      />
+      <HorizontalScrollList
+        {...props}
+        style={{ height: 200, marginRight: 12 }}
+        mainText="Trending places"
         itemList={Data}
       />
       <VerticalScrollList
